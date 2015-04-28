@@ -1,39 +1,27 @@
 let AppDispatcher = require('../dispatcher/AppDispatcher');
 let appConstants = require('../constants/appConstants');
-let objectAssign = require('react/lib/Object.assign');
-let EventEmitter = require('events').EventEmitter;
+const objectAssign = require('react/lib/Object.assign');
+const EventEmitter = require('events').EventEmitter;
 
-let CHANGE_EVENT = 'change';
+const CHANGE_EVENT = 'change';
 
 let _store = {
     list: []
 };
 
-let init = function(target){
-    _store.list = target;
-};
+let init = (data) => _store.list = data;
 
-let addItem = function(target){
-  _store.list.push(target);
-};
+let addItem = (item) => _store.list.push(item);
 
-let removeItem = function(index){
-    _store.list.splice(index, 1);
-};
+let removeItem = (index) => _store.list.splice(index, 1);
 
 let listStore = objectAssign({}, EventEmitter.prototype, {
 
-    getListData() {
-        return _store.list;
-    },
+    getListData() { return _store.list; },
 
-    addChangeListener(cb) {
-        this.on(CHANGE_EVENT, cb);
-    },
+    addChangeListener(cb) { this.on(CHANGE_EVENT, cb); },
 
-    removeChangeListener(cb) {
-        this.removeListener(CHANGE_EVENT, cb);
-    }
+    removeChangeListener(cb) { this.removeListener(CHANGE_EVENT, cb); }
 
 });
 
