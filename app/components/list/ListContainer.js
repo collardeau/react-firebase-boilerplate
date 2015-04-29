@@ -1,7 +1,7 @@
 const React = require('react');
 let ListItem = require('./ListItem');
-let listActions = require('../actions/listActions');
-let listStore = require('../stores/listStore');
+let listActions = require('../../actions/listActions');
+let listStore = require('../../stores/listStore');
 
 class ListContainer extends React.Component {
 

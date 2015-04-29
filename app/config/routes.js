@@ -2,8 +2,8 @@ var React = require('react');
 var Router = require('react-router');
 var Route = Router.Route;
 var AppContainer = require('../components/AppContainer');
-var ListContainer = require('../components/ListContainer');
-var Welcome = require('../components/Welcome');
+var ListContainer = require('../components/list/ListContainer');
+var Welcome = require('../components/welcome/Welcome');
 
 var routes = (
     <Route handler={AppContainer} >
