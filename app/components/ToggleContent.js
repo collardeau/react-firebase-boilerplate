@@ -2,6 +2,10 @@ const React = require('react');
 
 class ToggleContent extends React.Component {
 
+    //constructor(props) {
+    //    super(props);
+    //}
+
     render() {
 
         var styles = {

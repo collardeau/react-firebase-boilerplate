@@ -1,17 +1,7 @@
 const React = require('react');
-let AppContainer = require('./components/AppContainer');
+const Router = require('react-router');
+const routes = require('./config/routes');
 
-class App extends React.Component {
-    render() {
-        return (
-            <div>
-                <AppContainer />
-            </div>
-        )
-    }
-}
-
-React.render(
-    <App />,
-    document.getElementById('app')
-);
+Router.run(routes, Router.HashLocation, (Root) => {
+    React.render(<Root/>, document.body);
+});

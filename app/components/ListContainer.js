@@ -1,11 +1,22 @@
 const React = require('react');
 let ListItem = require('./ListItem');
 let listActions = require('../actions/listActions');
+let listStore = require('../stores/listStore');
 
 class ListContainer extends React.Component {
 
     constructor() {
+        this.state = { list: listStore.getList() };
+        this.changeContent = this.changeContent.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        listStore.addChangeListener(this.changeContent);
+    }
+
+    componentWillUnMount() {
+        listStore.removeChangeListener(this._onChange);
     }
 
     handleSubmit(e) {
@@ -23,9 +34,9 @@ class ListContainer extends React.Component {
 
     render() {
 
-        let list = this.props.list.map((item,index) => {
+        let list = this.state.list.map((item,index) => {
             return (
-                <ListItem key={index} item={ item } onDelete={this.handleDelete.bind(this,index, item.key)}/>
+                <ListItem key={index} item={ item } onDelete={this.handleDelete.bind(this, index, item.key)}/>
             )
         });
 
@@ -40,6 +51,12 @@ class ListContainer extends React.Component {
 
             </div>
         )
+    }
+
+    changeContent() {
+        this.setState({
+            list: listStore.getList()
+        })
     }
 
 }

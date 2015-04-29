@@ -17,6 +17,8 @@ let listStore = objectAssign({}, EventEmitter.prototype, {
 
     getList() { return _store.list; },
 
+    getListCount() { return _store.list.length },
+
     addChangeListener(cb) { this.on(CHANGE_EVENT, cb); },
 
     removeChangeListener(cb) { this.removeListener(CHANGE_EVENT, cb); }

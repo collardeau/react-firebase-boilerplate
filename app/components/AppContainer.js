@@ -1,34 +1,27 @@
-'use strict';
-
 const React = require('react');
-let ListContainer = require('./ListContainer');
-let ToggleContent = require('./ToggleContent');
+const Router = require('react-router');
+const RouteHandler = Router.RouteHandler;
+const Link = Router.Link;
+
 let listStore = require('../stores/listStore');
 let listActions = require('../actions/listActions');
-
 
 class AppContainer extends React.Component {
 
     constructor() {
-        //super();
-        this.state = { list: [], toggleIsOpen: false };
+        this.state = {
+            listCount: 0
+        };
         this.changeContent = this.changeContent.bind(this);
-        this.handleToggle = this.handleToggle.bind(this);
     }
 
     componentDidMount() {
         listStore.addChangeListener(this.changeContent);
-        listActions.getList("demo"); // throwing away demo for now
+        listActions.getList();
     }
 
     componentWillUnMount() {
         listStore.removeChangeListener(this._onChange);
-    }
-
-    handleToggle(){
-        this.setState({
-            toggleIsOpen: !this.state.toggleIsOpen
-        });
     }
 
     render() {
@@ -44,13 +37,13 @@ class AppContainer extends React.Component {
             <div style={styles.container}>
                 <h1>App</h1>
                 <nav>
-                    <button>List</button>
-                    <button>Things</button>
+                    <Link to="welcome">Welcome</Link>
+                    <br />
+                    <Link to="list">List</Link> - { this.state.listCount } items
                 </nav>
 
-                <ListContainer list={ this.state.list }/>
-                <a href='#' onClick={this.handleToggle}>Collapsable Content</a>
-                <ToggleContent isOpen={this.state.toggleIsOpen} />
+                <RouteHandler />
+
             </div>
 
         )
@@ -58,7 +51,7 @@ class AppContainer extends React.Component {
 
     changeContent() {
         this.setState({
-            list: listStore.getList()
+            listCount: listStore.getListCount()
         })
     }
 
