@@ -5,11 +5,9 @@ const EventEmitter = require('events').EventEmitter;
 
 const CHANGE_EVENT = 'change';
 
-let _store = {
-    list: []
-};
+let _store = { list: [] };
 
-let init = (data) => _store.list = data;
+let setList = (data) => _store.list = data;
 
 let addItem = (item) => _store.list.push(item);
 
@@ -17,7 +15,7 @@ let removeItem = (index) => _store.list.splice(index, 1);
 
 let listStore = objectAssign({}, EventEmitter.prototype, {
 
-    getListData() { return _store.list; },
+    getList() { return _store.list; },
 
     addChangeListener(cb) { this.on(CHANGE_EVENT, cb); },
 
@@ -29,7 +27,7 @@ AppDispatcher.register(function(payload){
     var action = payload.action;
     switch(action.actionType){
         case appConstants.GET_DATA:
-            init(action.data.list);
+            setList(action.data.list);
             listStore.emit(CHANGE_EVENT);
             break;
         case appConstants.ADD_ITEM:

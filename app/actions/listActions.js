@@ -3,7 +3,7 @@ let appConstants = require('../constants/appConstants');
 let firebaseUtils = require('../utils/FirebaseUtils');
 
 let listActions = {
-    init() {
+    getList(list) {
         firebaseUtils.homeInstance().child('list').on('value', function(snapshot){
             AppDispatcher.handleAction({
                 actionType: appConstants.GET_DATA,

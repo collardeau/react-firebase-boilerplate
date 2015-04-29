@@ -11,18 +11,14 @@ class AppContainer extends React.Component {
 
     constructor() {
         //super();
-        this.state = {
-            list: listStore.getListData(),
-            toggleIsOpen: false
-        };
-
+        this.state = { list: [], toggleIsOpen: false };
         this.changeContent = this.changeContent.bind(this);
         this.handleToggle = this.handleToggle.bind(this);
     }
 
     componentDidMount() {
         listStore.addChangeListener(this.changeContent);
-        listActions.init();
+        listActions.getList("demo"); // throwing away demo for now
     }
 
     componentWillUnMount() {
@@ -46,10 +42,15 @@ class AppContainer extends React.Component {
 
         return (
             <div style={styles.container}>
-                <h1>My New App</h1>
+                <h1>App</h1>
+                <nav>
+                    <button>List</button>
+                    <button>Things</button>
+                </nav>
+
+                <ListContainer list={ this.state.list }/>
                 <a href='#' onClick={this.handleToggle}>Collapsable Content</a>
                 <ToggleContent isOpen={this.state.toggleIsOpen} />
-                <ListContainer list={ this.state.list }/>
             </div>
 
         )
@@ -57,7 +58,7 @@ class AppContainer extends React.Component {
 
     changeContent() {
         this.setState({
-            list: listStore.getListData()
+            list: listStore.getList()
         })
     }
 
