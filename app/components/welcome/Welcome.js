@@ -27,11 +27,15 @@ class Welcome extends React.Component {
                 <h1>Welcome</h1>
 
                 <section>
-
                     <aside>What is this about</aside>
-                    <article>Example of a Neat semantic grid framework built on top of Sass and Bourbon</article>
+                    <article>Here is a Neat semantic grid built on top of Sass and Bourbon</article>
+                </section>
+                <section>
+                    <aside>Tell more</aside>
+                    <article>Check out <a href="http://thoughtbot.github.io/neat-docs/latest/#column">Burbon Neat</a></article>
                 </section>
 
+                <hr/>
                 <div>
                     <a href='#' onClick={this.handleToggle}>Collapsable Content</a>
                     <div style={styles.content}>

@@ -1,6 +1,6 @@
 @import 'bourbon';
 @import 'neat';
-//@import '../../node_modules/node-neat/node_modules/bourbon-neat/app/assets/stylesheets/neat';
+@import "base/base";
 
 $base_color: lighten(black, 50%);   //scss
 
@@ -9,26 +9,14 @@ body {
 }
 
 .container {
-  width: 80%;
-  margin: 0 auto;
+  @include padding(em(34px) em(55px));  // bourbon
 }
 
-h1 {
-  @include transform(rotate(1deg));   // bourbon
-}
-
-section {
+section {   // neat grid
   @include outer-container;
   aside { @include span-columns(3); }
   article { @include span-columns(9); }
-  margin-bottom: 1em;
 }
-#{$all-text-inputs} {
-  width: 100%;
-  margin-bottom: 0.6em;
-}
-
 
 @import "./welcome";
 @import "./navigation";
-@import "./table";
