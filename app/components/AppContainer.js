@@ -28,7 +28,7 @@ class AppContainer extends React.Component {
 
         return (
             <div className="container">
-                <h1>App</h1>
+                <h1>New App</h1>
                 <nav>
                     <Link to="welcome">Welcome</Link>
                     <br />

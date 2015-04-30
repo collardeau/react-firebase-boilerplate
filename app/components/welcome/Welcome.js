@@ -23,7 +23,7 @@ class Welcome extends React.Component {
         };
 
         return (
-            <div>
+            <div id="welcome">
                 <h1>Welcome</h1>
 
                 <a href='#' onClick={this.handleToggle}>Collapsable Content</a>

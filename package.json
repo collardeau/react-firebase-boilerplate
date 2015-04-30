@@ -1,13 +1,16 @@
 {
-  "name": "timeline",
-  "description": "timeline app",
+  "name": "Boilerplate",
+  "description": "Killer boilerplate with React, Flux, Firebase, React-router, sass and more",
   "version": "0.0.0",
   "devDependencies": {
     "babel": "^4.1.1",
     "babel-core": "^4.0.1",
     "babel-loader": "^4.0.0",
     "css-loader": "^0.9.1",
+    "extract-text-webpack-plugin": "^0.7.0",
     "jsx-loader": "^0.13.1",
+    "node-bourbon": "^4.2.1-beta1",
+    "node-neat": "^1.7.1-beta1",
     "node-sass": "^2.1.1",
     "react-hot-loader": "^1.1.5",
     "sass-loader": "^0.6.0",

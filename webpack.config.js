@@ -1,6 +1,10 @@
 //inspired by https://github.com/collardeau/react-scaffold/tree/master/src/scripts
 
+//var path = require('path');
 var webpack = require('webpack');
+var bourbon = require('node-bourbon').includePaths;
+//var neat = require('node-neat').includePaths;
+//var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var config = {
     devtool: 'eval',
@@ -23,7 +27,10 @@ var config = {
         loaders: [
             { test: /\.(js|jsx)$/, loaders: ['react-hot', 'jsx-loader', 'babel'], exclude: /node_modules/},
             { test: /\.css$/, loader: 'style-loader!css' },
-            { test: /\.scss$/, loader: "style!css!sass" }
+            {
+                test: /\.scss$/,
+                loader: "style!css!sass?includePaths[]=" + bourbon
+            }
         ]
     },
 

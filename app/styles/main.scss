@@ -1,8 +1,24 @@
+@import 'bourbon';
+
+$base_color: lighten(black, 50%);
+
 body {
   background: darken(white, 2%);
 }
 
 .container {
   width: 80%;
-  margin: 0 auto
+  margin: 0 auto;
 }
+
+h1 {
+  @include transform(rotate(1deg));
+}
+
+//section {
+//  @include outer-container;
+//  aside { @include span-columns(3); }
+//  article { @include span-columns(9); }
+//}
+
+@import 'welcome';
