@@ -29,11 +29,13 @@ class AppContainer extends React.Component {
     render() {
 
         return (
-            <div className="container">
+            <div>
 
                 <Navigation listCount={ this.state.listCount }/>
 
-                <RouteHandler />
+                <div className="container">
+                    <RouteHandler />
+                </div>
 
             </div>
         )

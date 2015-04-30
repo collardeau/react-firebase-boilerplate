@@ -28,14 +28,14 @@ class Welcome extends React.Component {
 
                 <section>
 
-                    <aside>What is it about</aside>
-                    <article>Neat is an open source semantic grid framework built on top of Sass and Bourbon…</article>
+                    <aside>What is this about</aside>
+                    <article>Example of a Neat semantic grid framework built on top of Sass and Bourbon</article>
                 </section>
 
                 <div>
                     <a href='#' onClick={this.handleToggle}>Collapsable Content</a>
                     <div style={styles.content}>
-                        Some extra content
+                        Collapsable section toggled with React state
                     </div>
                 </div>
 

@@ -1,5 +1,6 @@
 const React = require('react');
 let ListItem = require('./ListItem');
+let Table = require('../Table');
 let listActions = require('../../actions/listActions');
 let listStore = require('../../stores/listStore');
 
@@ -42,12 +43,24 @@ class ListContainer extends React.Component {
 
         return (
             <div>
-                <h3>My List</h3>
+                <h1>My List</h1>
                 <form onSubmit={this.handleSubmit}>
                     <input ref="newItem" type="text" placeholder="New item" />
                     <button type="submit">Submit</button>
                 </form>
-                <ul> { list } </ul>
+                <br />
+                <table className="tables">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        { list }
+                    </tbody>
+                </table>
+
 
             </div>
         )
