@@ -1,5 +1,4 @@
 const React = require('react');
-let ToggleContent = require('./ToggleContent');
 
 class Welcome extends React.Component {
 
@@ -16,12 +15,21 @@ class Welcome extends React.Component {
     }
 
     render(){
+
+        var styles = {
+            content: {
+                display: this.state.toggleIsOpen ? "block" : "none"
+            }
+        };
+
         return (
             <div>
                 <h1>Welcome</h1>
 
                 <a href='#' onClick={this.handleToggle}>Collapsable Content</a>
-                <ToggleContent isOpen={this.state.toggleIsOpen} />
+                <div style={styles.content}>
+                    Some extra content
+                </div>
             </div>
         )
     }

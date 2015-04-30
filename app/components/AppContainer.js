@@ -26,15 +26,8 @@ class AppContainer extends React.Component {
 
     render() {
 
-        let styles = {
-            container: {
-                width: "80%",
-                margin: "0 auto"
-            }
-        };
-
         return (
-            <div style={styles.container}>
+            <div className="container">
                 <h1>App</h1>
                 <nav>
                     <Link to="welcome">Welcome</Link>
@@ -45,7 +38,6 @@ class AppContainer extends React.Component {
                 <RouteHandler />
 
             </div>
-
         )
     }
 

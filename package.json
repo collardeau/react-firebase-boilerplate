@@ -8,9 +8,12 @@
     "babel-loader": "^4.0.0",
     "css-loader": "^0.9.1",
     "jsx-loader": "^0.13.1",
+    "node-sass": "^2.1.1",
+    "react-hot-loader": "^1.1.5",
+    "sass-loader": "^0.6.0",
+    "style-loader": "^0.12.1",
     "webpack": "^1.8.10",
-    "webpack-dev-server": "^1.8.2",
-    "react-hot-loader": "^1.1.5"
+    "webpack-dev-server": "^1.8.2"
   },
   "dependencies": {
     "axios": "^0.4.2",

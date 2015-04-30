@@ -5,7 +5,9 @@ const EventEmitter = require('events').EventEmitter;
 
 const CHANGE_EVENT = 'change';
 
-let _store = { list: [] };
+let _store = {
+    list: []
+};
 
 let setList = (data) => _store.list = data;
 

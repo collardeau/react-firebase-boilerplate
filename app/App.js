@@ -1,3 +1,4 @@
+require('./styles/main.scss');
 const React = require('react');
 const Router = require('react-router');
 const routes = require('./config/routes');

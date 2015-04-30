@@ -21,7 +21,8 @@ var config = {
     },
     module: {
         loaders: [
-            { test: /\.(js|jsx)$/, loaders: ['react-hot', 'jsx-loader', 'babel'], exclude: /node_modules/}
+            { test: /\.(js|jsx)$/, loaders: ['react-hot', 'jsx-loader', 'babel'], exclude: /node_modules/},
+            { test: /\.scss$/, loader: "style!css!sass" }
         ]
     },
 
