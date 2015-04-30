@@ -6,6 +6,8 @@ const Link = Router.Link;
 let listStore = require('../stores/listStore');
 let listActions = require('../actions/listActions');
 
+let Navigation = require('./Navigation');
+
 class AppContainer extends React.Component {
 
     constructor() {
@@ -28,12 +30,8 @@ class AppContainer extends React.Component {
 
         return (
             <div className="container">
-                <h1>New App</h1>
-                <nav>
-                    <Link to="welcome">Welcome</Link>
-                    <br />
-                    <Link to="list">List</Link> - { this.state.listCount } items
-                </nav>
+
+                <Navigation listCount={ this.state.listCount }/>
 
                 <RouteHandler />
 
