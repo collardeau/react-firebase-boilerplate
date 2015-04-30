@@ -1,10 +1,12 @@
 //inspired by https://github.com/collardeau/react-scaffold/tree/master/src/scripts
 
-//var path = require('path');
+var path = require('path');
 var webpack = require('webpack');
-var bourbon = require('node-bourbon').includePaths;
-//var neat = require('node-neat').includePaths;
-//var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var neat = require('node-neat').includePaths;
+
+var sassNeatPaths = require("node-neat").includePaths.map(function(sassPath) {
+    return "includePaths[]=" + sassPath;
+}).join("&");
 
 var config = {
     devtool: 'eval',
@@ -29,7 +31,7 @@ var config = {
             { test: /\.css$/, loader: 'style-loader!css' },
             {
                 test: /\.scss$/,
-                loader: "style!css!sass?includePaths[]=" + bourbon
+                loader: "style!css!sass?" + sassNeatPaths
             }
         ]
     },
