@@ -1,3 +1,4 @@
+require('normalize.css/normalize.css');
 require('./styles/main.scss');
 const React = require('react');
 const Router = require('react-router');
