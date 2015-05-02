@@ -6,7 +6,7 @@ class ListItem extends React.Component {
         return (
             <tr>
                 <td>{this.props.item.title}</td>
-                <td><button onClick={this.props.onDelete}>X</button></td>
+                <td><button className="btn-alert" onClick={this.props.onDelete}>X</button></td>
             </tr>
         )
     }

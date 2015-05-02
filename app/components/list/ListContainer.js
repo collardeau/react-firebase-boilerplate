@@ -43,11 +43,13 @@ class ListContainer extends React.Component {
         return (
             <div>
                 <h1>My List</h1>
+
                 <form onSubmit={this.handleSubmit}>
                     <input ref="newItem" type="text" placeholder="New item" />
-                    <button type="submit">Submit</button>
+                    <button className="btn-action" type="submit">Submit</button>
                 </form>
                 <br />
+
                 <table>
                     <thead>
                         <tr>

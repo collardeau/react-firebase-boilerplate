@@ -2,8 +2,6 @@
 @import 'neat';
 @import "base/base";
 
-$base_color: lighten(black, 50%);   //scss
-
 body {
   background: darken(white, 2%);
 }
