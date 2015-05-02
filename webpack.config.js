@@ -9,7 +9,6 @@ var sassNeatPaths = require("node-neat").includePaths.map(function(sassPath) {
 }).join("&");
 
 var config = {
-    devtool: 'eval',
     entry: {
         app: [
             'webpack-dev-server/client?http://localhost:8080',
@@ -40,6 +39,8 @@ var config = {
         new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js"),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
+        // If you want to minify everything
+        // new webpack.optimize.UglifyJsPlugin()
     ]
 };
 
