@@ -1,25 +1,21 @@
-/**
- * Created by Thomas on 5/2/15.
- */
+var React = require('react');
+var TestUtils = require('react/lib/ReactTestUtils');
+var stubRouterContext = require('../app/utils/stubRouterContext');
+var AppContainer = require('../app/components/AppContainer');
 
-let foo = "hello";
-
-//let test = require("react");
+describe('AppContainer', () => {
+    it('renders', () => {
+        let Subject = stubRouterContext(AppContainer);
+        let element = TestUtils.renderIntoDocument(<Subject />);
+        expect(element).toBeTruthy();
+    });
+});
 
 describe("Test", () => {
 
     it("should work", function() {
 
-        expect(true).toBe(true);
-    });
-
-});
-
-describe("Test2", () => {
-
-    it("should work", function() {
-
-        expect(false).toBe(true);
+        expect(false).toBe(false);
     });
 
 });

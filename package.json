@@ -6,6 +6,7 @@
     "babel": "^4.1.1",
     "babel-core": "^4.0.1",
     "babel-loader": "^4.0.0",
+    "core-js": "^0.9.6",
     "css-loader": "^0.9.1",
     "extract-text-webpack-plugin": "^0.7.0",
     "jasmine-core": "^2.3.0",
@@ -32,6 +33,7 @@
     "flux": "^2.0.3",
     "jquery": "^2.1.4",
     "normalize.css": "^3.0.3",
+    "object-assign": "^2.0.0",
     "react": "^0.13.2",
     "react-router": "^0.13.3"
   },
