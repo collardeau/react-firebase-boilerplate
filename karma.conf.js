@@ -24,7 +24,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        'spec/spec_index.js': ['webpack']
+        'spec/spec_index.js': ['webpack', 'sourcemap']
     },
 
     // test results reporter to use
@@ -60,13 +60,23 @@ module.exports = function(config) {
 
           // webpack configuration
 
+          devtool: "inline-source-map",
+
           module: {
               loaders: [
-                  { test: /\.(js|jsx)$/, loaders: ['jsx'], exclude: /node_modules/}
+                  { test: /\.(js|jsx)$/, loaders: ['babel'], exclude: /node_modules/}
               ]
           }
 
       },
+
+      plugins: [
+          require("karma-sourcemap-loader"),
+          require("karma-jasmine"),
+          require("karma-webpack"),
+          require("karma-phantomjs-launcher"),
+          require("karma-chrome-launcher")
+    ],
 
       webpackServer: {
         noInfo: true //please don't spam the console when running in karma!

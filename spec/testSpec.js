@@ -2,11 +2,25 @@
  * Created by Thomas on 5/2/15.
  */
 
-describe("Test", function() {
+let foo = "hello";
+
+//let test = require("react");
+
+describe("Test", () => {
 
     it("should work", function() {
 
-        expect(true).toBe(false);
+        expect(true).toBe(true);
     });
 
 });
+
+describe("Test2", () => {
+
+    it("should work", function() {
+
+        expect(false).toBe(true);
+    });
+
+});
+
