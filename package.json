@@ -28,6 +28,6 @@
     "react-router": "^0.13.3"
   },
   "scripts": {
-    "dev": "webpack-dev-server --devtool eval --hot --progress --colors --content-base public --history-api-fallback"
+    "dev": "webpack-dev-server --devtool eval --inline --hot --progress --colors --content-base public --history-api-fallback"
   }
 }

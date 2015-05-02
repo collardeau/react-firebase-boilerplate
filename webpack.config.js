@@ -3,7 +3,6 @@
 var path = require('path');
 var webpack = require('webpack');
 var neat = require('node-neat').includePaths;
-
 var sassNeatPaths = require("node-neat").includePaths.map(function(sassPath) {
     return "includePaths[]=" + sassPath;
 }).join("&");
@@ -26,12 +25,10 @@ var config = {
     },
     module: {
         loaders: [
-            { test: /\.(js|jsx)$/, loaders: ['react-hot', 'jsx-loader', 'babel'], exclude: /node_modules/},
-            { test: /\.css$/, loader: 'style-loader!css' },
-            {
-                test: /\.scss$/,
-                loader: "style!css!sass?" + sassNeatPaths
-            }
+            { test: /\.(js|jsx)$/, loaders: ['react-hot', 'jsx', 'babel'], exclude: /node_modules/},
+            { test: /\.css$/, loaders: ['style', 'css'] },
+            { test: /\.scss$/, loaders: ['style', 'css', 'sass?' + sassNeatPaths] }
+
         ]
     },
 
