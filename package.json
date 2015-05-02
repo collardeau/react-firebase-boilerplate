@@ -15,6 +15,7 @@
     "karma-cli": "0.0.4",
     "karma-jasmine": "^0.3.5",
     "karma-phantomjs-launcher": "^0.1.4",
+    "karma-webpack": "^1.5.0",
     "node-bourbon": "^4.2.1-beta1",
     "node-neat": "^1.7.1-beta1",
     "node-sass": "^2.1.1",
@@ -36,6 +37,6 @@
   "scripts": {
     "dev": "webpack-dev-server --config webpack.config.dev.js --inline --hot --progress --colors --content-base public --history-api-fallback",
     "build": "webpack --config webpack.config.build.js --progress --colors",
-    "test": "karma start --colors"
+    "test": "karma start"
   }
 }
