@@ -1,5 +1,3 @@
-//inspired by https://github.com/collardeau/react-scaffold/tree/master/src/scripts
-
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -9,10 +7,9 @@ var sassNeatPaths = require("node-neat").includePaths.map(function(sassPath) {
 }).join("&");
 
 var config = {
+
     entry: {
         app: [
-            'webpack-dev-server/client?http://localhost:8080',
-            'webpack/hot/only-dev-server',
             './app/App.js'
         ],
         vendor: [
@@ -26,7 +23,7 @@ var config = {
     },
     module: {
         loaders: [
-            { test: /\.(js|jsx)$/, loaders: ['react-hot', 'jsx', 'babel'], exclude: /node_modules/},
+            { test: /\.(js|jsx)$/, loaders: ['jsx', 'babel'], exclude: /node_modules/},
             { test: /\.scss$/, loaders: [ExtractTextPlugin.extract("css"), 'css', 'sass?' + sassNeatPaths] },
             { test: /\.css$/, loader: ExtractTextPlugin.extract("css") }
         ]
@@ -34,12 +31,9 @@ var config = {
 
     plugins: [
         new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js"),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
-        new ExtractTextPlugin("bundle.css"),
-        // If you want to minify everything (including css bundle), perhaps remove react-hot?
-        //new webpack.optimize.UglifyJsPlugin()
+        new ExtractTextPlugin("bundle.css")
     ]
+
 };
 
 module.exports = config;
