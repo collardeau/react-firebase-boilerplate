@@ -6,6 +6,7 @@ let listStore = require('../../stores/listStore');
 class ListContainer extends React.Component {
 
     constructor() {
+        super();
         this.state = { list: listStore.getList() };
         this.changeContent = this.changeContent.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);

@@ -11,6 +11,7 @@ let Navigation = require('./Navigation');
 class AppContainer extends React.Component {
 
     constructor() {
+        super();
         this.state = {
             listCount: 0
         };

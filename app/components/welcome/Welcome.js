@@ -3,6 +3,7 @@ const React = require('react');
 class Welcome extends React.Component {
 
     constructor() {
+        super();
         this.state = { toggleIsOpen: false };
         this.handleToggle = this.handleToggle.bind(this);
     }

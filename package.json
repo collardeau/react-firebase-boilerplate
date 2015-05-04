@@ -3,8 +3,8 @@
   "description": "Killer boilerplate with React, Flux, Firebase, React-router, sass and more",
   "version": "0.0.0",
   "devDependencies": {
-    "babel": "^4.1.1",
-    "babel-core": "^4.0.1",
+    "babel": "^5.2.9",
+    "babel-core": "^5.2.9",
     "babel-loader": "^4.0.0",
     "core-js": "^0.9.6",
     "css-loader": "^0.9.1",
