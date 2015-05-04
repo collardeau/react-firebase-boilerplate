@@ -7,7 +7,7 @@ class ListContainer extends React.Component {
 
     constructor() {
         super();
-        this.state = { list: listStore.getList() };
+        this.state = { list: this.getList() };
         this.changeContent = this.changeContent.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -20,12 +20,22 @@ class ListContainer extends React.Component {
         listStore.removeChangeListener(this._onChange);
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        let newItem = this.refs.newItem.getDOMNode().value;
+    getList() {
+        return listStore.getList();
+    }
+
+    addItem(newItem) {
         listActions.addItem({
             title: newItem
         });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        let newItem = this.refs.newItem.getDOMNode().value;
+        if(newItem !== "") {
+            this.addItem(newItem);
+        }
         this.refs.newItem.getDOMNode().value = "";
     }
 
@@ -47,7 +57,7 @@ class ListContainer extends React.Component {
 
                 <form onSubmit={this.handleSubmit}>
                     <input ref="newItem" type="text" placeholder="New item" />
-                    <button className="btn-action" type="submit">Submit</button>
+                    <button className="btn-action">Submit</button>
                 </form>
                 <br />
 
@@ -70,7 +80,7 @@ class ListContainer extends React.Component {
 
     changeContent() {
         this.setState({
-            list: listStore.getList()
+            list: this.getList()
         })
     }
 
