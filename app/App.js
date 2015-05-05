@@ -14,12 +14,15 @@ class App extends React.Component {
         let ui = null;
 
         switch(this.props.route) {
+
             case "home":
                 ui = <HomeRoute />;
                 break;
+
             case "list":
                 ui = <ListRoute />;
                 break;
+
             default:
                 ui = <HomeRoute />;
         }

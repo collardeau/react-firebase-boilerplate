@@ -16,7 +16,6 @@ describe('Navigation Component', () => {
     });
 
     it('has state', () => {
-        console.log(component);
         expect(component.state).toBeDefined();
     });
 

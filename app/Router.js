@@ -1,5 +1,4 @@
 const React = require('react');
-const crossroads = require('crossroads');
 const hasher = require('hasher');
 
 let App = require('./App');
@@ -8,7 +7,7 @@ class Router extends React.Component {
 
     constructor() {
         super();
-        this.state = {hash : undefined};
+        this.state = {hash : ""};
         this.handleChanges = this.handleChanges.bind(this);
     }
 

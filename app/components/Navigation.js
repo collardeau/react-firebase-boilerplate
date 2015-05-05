@@ -4,11 +4,8 @@ const hasher = require('hasher');
 
 class Navigation extends React.Component {
 
-    handleLink(e) {
-        // name of link has to match!
-        e.preventDefault();
-        let link = e.target.innerHTML.toLowerCase();
-        hasher.setHash(link);
+    handleLink(route) {
+        hasher.setHash(route);
     }
 
     componentDidMount() {
@@ -23,11 +20,6 @@ class Navigation extends React.Component {
                 }
             });
         });
-
-    }
-
-    componentWillUnMount() {
-        //
     }
 
     render() {
@@ -43,10 +35,10 @@ class Navigation extends React.Component {
                     <nav role="navigation">
                         <ul id="js-centered-navigation-menu" className="centered-navigation-menu show">
                             <li className="nav-link">
-                                <a onClick={this.handleLink }>Home</a>
+                                <a onClick={this.handleLink.bind(this,'home') }>Home</a>
                             </li>
                             <li className="nav-link">
-                                <a onClick={this.handleLink } >List</a>
+                                <a onClick={this.handleLink.bind(this,'list') }>List</a>
                             </li>
 
                             <li className="nav-link logo">
