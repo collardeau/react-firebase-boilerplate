@@ -1,13 +1,10 @@
 let React = require('react');
 let TestUtils = require('react/lib/ReactTestUtils');
-//let stubRouterContext = require('../app/utils/stubRouterContext');
-let Subject = require('../app/components/list/ListContainer');
-
-//let Subject = stubRouterContext(ListContainer);
+let ListContainer = require('../app/components/list/ListContainer');
 
 describe('ListContainer Component', () => {
 
-    var component = TestUtils.renderIntoDocument(<Subject />);
+    let component = TestUtils.renderIntoDocument(<ListContainer />);
 
     it('renders', () => {
         expect(component).toBeTruthy()
@@ -32,12 +29,6 @@ describe('ListContainer Component', () => {
             spyOn(component, "addItem");
         });
 
-        it('clears the input box', () => {
-            input.value = "An item";
-            TestUtils.Simulate.submit(form[0]);
-            expect(input.value).toEqual("");
-        });
-
         it('calls addItem function with a string', () => {
             input.value = "An item";
             TestUtils.Simulate.submit(form[0]);
@@ -45,6 +36,12 @@ describe('ListContainer Component', () => {
             expect(component.addItem).toHaveBeenCalledWith("An item");
             expect(component.addItem.calls.mostRecent().args).toEqual([jasmine.any(String)]);
 
+        });
+
+        it('clears the input box', () => {
+            input.value = "An item";
+            TestUtils.Simulate.submit(form[0]);
+            expect(input.value).toEqual("");
         });
 
         it('does not accept an empty string', () => {
