@@ -43,7 +43,7 @@ class Navigation extends React.Component {
                                 <a href="javascript:void(0)">More</a>
                                 <ul className="submenu">
                                     <li>
-                                        <a href="javascript:void(0)">Submenu Item</a>
+                                        <a onClick={this.handleLink.bind(this,'d3') }>D3</a>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)">Another Item</a>

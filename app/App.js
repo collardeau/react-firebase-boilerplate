@@ -7,8 +7,10 @@ const React = require('react');
 let Navigation = require('./components/Navigation');
 let Home = require('./components/Home');
 let ListContainer = require('./components/list/ListContainer');
+
 let Login = require('./components/login/Login');
 let Account = require('./components/Account');
+let D3Container = require('./components/d3/D3Container');
 
 class App extends React.Component {
 
@@ -32,6 +34,10 @@ class App extends React.Component {
 
             case "account":
                 ui = accountRoute;
+                break;
+
+            case "d3":
+                ui = <D3Route />;
                 break;
 
             default:
@@ -70,5 +76,17 @@ let accountRoute = (
         <Account />
     </div>
 );
+
+class D3Route extends React.Component {
+
+    render() {
+        return (
+            <div>
+                <Navigation />
+                <D3Container />
+            </div>
+        )
+    }
+}
 
 module.exports = App;
