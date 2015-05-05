@@ -17,8 +17,8 @@ class ListContainer extends React.Component {
         listActions.getList();
     }
 
-    componentWillUnMount() {
-        listStore.removeChangeListener(this._onChange);
+    componentWillUnmount() {
+        listStore.removeChangeListener(this.changeContent);
     }
 
     returnList() {
