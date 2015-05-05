@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "axios": "^0.4.2",
+    "d3": "^3.5.5",
     "firebase": "^2.2.2",
     "flux": "^2.0.3",
     "font-awesome": "^4.3.0",
