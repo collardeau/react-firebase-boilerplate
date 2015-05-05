@@ -35,10 +35,10 @@ class Navigation extends React.Component {
                     <nav role="navigation">
                         <ul id="js-centered-navigation-menu" className="centered-navigation-menu show">
                             <li className="nav-link">
-                                <a href="#welcome">Welcome</a>
+                                <a href="welcome" onclick="return false;">Welcome</a>
                             </li>
                             <li className="nav-link">
-                                <a href="#list" >List  { this.props.listCount }</a>
+                                <a href="list" >List  { this.props.listCount }</a>
                             </li>
 
                             <li className="nav-link logo">
