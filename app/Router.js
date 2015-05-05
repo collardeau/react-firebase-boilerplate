@@ -1,17 +1,10 @@
 const React = require('react');
 const crossroads = require('crossroads');
 const hasher = require('hasher');
+
 let App = require('./App');
 
 class Router extends React.Component {
-
-    handleChanges(newHash, oldHash) {
-        console.log(newHash);
-        this.setState({
-            hash: newHash
-        });
-    }
-
 
     constructor() {
         super();
@@ -28,22 +21,17 @@ class Router extends React.Component {
         }
     }
 
-    render () {
-
-        return (
-
-            // depending on the has, a different layout
-
-            <div>
-                <h1>Router</h1>
-                {this.state.hash}
-                <App />
-
-            </div>
-        )
-
+    handleChanges(newHash, oldHash) {
+        this.setState({
+            hash: newHash
+        });
     }
 
+    render () {
+        return (
+            <App route={ this.state.hash }/>
+        )
+    }
 
 }
 
