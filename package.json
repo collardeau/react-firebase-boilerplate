@@ -33,8 +33,7 @@
     "flux": "^2.0.3",
     "jquery": "^2.1.4",
     "normalize.css": "^3.0.3",
-    "react": "^0.13.2",
-    "react-router": "^0.13.3"
+    "react": "^0.13.2"
   },
   "scripts": {
     "dev": "webpack-dev-server --config webpack.config.dev.js --inline --hot --progress --colors --content-base public --history-api-fallback",

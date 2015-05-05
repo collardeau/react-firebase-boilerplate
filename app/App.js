@@ -1,9 +1,18 @@
 require('normalize.css/normalize.css');
 require('./styles/main.scss');
-const React = require('react');
-const Router = require('react-router');
-const routes = require('./config/routes');
 
-Router.run(routes, Router.HashLocation, (Root) => {
-    React.render(<Root/>, document.body);
+const React = require('react');
+let AppContainer = require('./components/AppContainer');
+
+let App = React.createClass({
+    render: function(){
+        return (
+            <AppContainer />
+        )
+    }
 });
+
+React.render(
+    <App />,
+    document.getElementById('app')
+);

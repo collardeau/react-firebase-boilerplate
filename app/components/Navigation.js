@@ -1,6 +1,4 @@
 const React = require('react');
-const {Router, Link} = require('react-router');
-//const Link = Router.Link;
 const $ = require('jquery');
 
 class Navigation extends React.Component {
@@ -37,10 +35,10 @@ class Navigation extends React.Component {
                     <nav role="navigation">
                         <ul id="js-centered-navigation-menu" className="centered-navigation-menu show">
                             <li className="nav-link">
-                                <Link to="welcome">Welcome</Link>
+                                <a href="#welcome">Welcome</a>
                             </li>
                             <li className="nav-link">
-                                <Link to="list">List  { this.props.listCount }</Link>
+                                <a href="#list" >List  { this.props.listCount }</a>
                             </li>
 
                             <li className="nav-link logo">

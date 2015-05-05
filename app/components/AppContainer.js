@@ -1,12 +1,10 @@
 const React = require('react');
-const Router = require('react-router');
-const RouteHandler = Router.RouteHandler;
-const Link = Router.Link;
 
 let listStore = require('../stores/listStore');
 let listActions = require('../actions/listActions');
 
 let Navigation = require('./Navigation');
+let ListContainer = require('./list/ListContainer');
 
 class AppContainer extends React.Component {
 
@@ -30,12 +28,12 @@ class AppContainer extends React.Component {
     render() {
 
         return (
-            <div>
+            <div id="appContainer">
 
                 <Navigation listCount={ this.state.listCount }/>
 
                 <div className="container">
-                    <RouteHandler />
+                    <ListContainer />
                 </div>
 
             </div>
