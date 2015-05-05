@@ -4,11 +4,11 @@ const hasher = require('hasher');
 
 class Navigation extends React.Component {
 
-
-    goToWelcome(e) {
+    handleLink(e) {
+        // name of link has to match!
         e.preventDefault();
-        console.log("going to welcome page");
-        hasher.setHash('welcome');
+        let link = e.target.innerHTML.toLowerCase();
+        hasher.setHash(link);
     }
 
     componentDidMount() {
@@ -43,10 +43,10 @@ class Navigation extends React.Component {
                     <nav role="navigation">
                         <ul id="js-centered-navigation-menu" className="centered-navigation-menu show">
                             <li className="nav-link">
-                                <a onClick={this.goToWelcome}>Welcome</a>
+                                <a onClick={this.handleLink }>Home</a>
                             </li>
                             <li className="nav-link">
-                                <a href="list" >List  { this.props.listCount }</a>
+                                <a onClick={this.handleLink } >List</a>
                             </li>
 
                             <li className="nav-link logo">

@@ -52,7 +52,7 @@ class ListContainer extends React.Component {
         });
 
         return (
-            <div>
+            <div className="container">
                 <h1>My List</h1>
 
                 <form onSubmit={this.handleSubmit}>

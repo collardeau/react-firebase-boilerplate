@@ -6,7 +6,6 @@ class Welcome extends React.Component {
         super();
         this.state = { toggleIsOpen: false };
         this.handleToggle = this.handleToggle.bind(this);
-        //this.goToWelcome = this.goToWelcome.bind(this);
     }
 
     handleToggle(e){
@@ -25,7 +24,7 @@ class Welcome extends React.Component {
         };
 
         return (
-            <div id="welcome">
+            <div className="container">
                 <h1>Welcome</h1>
 
                 <section>
