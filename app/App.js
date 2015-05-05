@@ -1,25 +1,21 @@
 require('normalize.css/normalize.css');
 require('./styles/main.scss');
-const crossroads = require('crossroads');
 
 const React = require('react');
 let AppContainer = require('./components/AppContainer');
+//let Navigation = require('./components/Navigation');
+//let Router = require('./Router');
 
-var route1 = crossroads.addRoute('list', function(){
-    console.log("yo");
-});
-
-crossroads.parse(document.location.pathname);
 
 let App = React.createClass({
     render: function(){
         return (
-            <AppContainer />
+            <h1>Appppp</h1>
         )
     }
 });
 
-React.render(
-    <App />,
-    document.getElementById('app')
-);
+module.exports = App;
+
+
+

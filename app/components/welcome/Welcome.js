@@ -6,6 +6,7 @@ class Welcome extends React.Component {
         super();
         this.state = { toggleIsOpen: false };
         this.handleToggle = this.handleToggle.bind(this);
+        //this.goToWelcome = this.goToWelcome.bind(this);
     }
 
     handleToggle(e){
