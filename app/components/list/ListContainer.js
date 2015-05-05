@@ -7,20 +7,21 @@ class ListContainer extends React.Component {
 
     constructor() {
         super();
-        this.state = { list: this.getList() };
-        this.changeContent = this.changeContent.bind(this);
+        this.state = { list: [] };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.changeContent = this.changeContent.bind(this);
     }
 
     componentDidMount() {
         listStore.addChangeListener(this.changeContent);
+        listActions.getList();
     }
 
     componentWillUnMount() {
         listStore.removeChangeListener(this._onChange);
     }
 
-    getList() {
+    returnList() {
         return listStore.getList();
     }
 
@@ -80,7 +81,7 @@ class ListContainer extends React.Component {
 
     changeContent() {
         this.setState({
-            list: this.getList()
+            list: this.returnList()
         })
     }
 
