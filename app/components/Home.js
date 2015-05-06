@@ -1,3 +1,6 @@
+/**
+ * Created by Thomas on 5/6/15.
+ */
 const React = require('react');
 
 class Welcome extends React.Component {

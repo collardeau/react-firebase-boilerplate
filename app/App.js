@@ -6,7 +6,7 @@ const firebaseUtils = require('./utils/firebaseUtils');
 const authUtils = require('./utils/authUtils');
 
 let Navigation = require('./components/Navigation');
-let Welcome = require('./components/welcome/Welcome');
+let Home = require('./components/Home');
 let ListContainer = require('./components/list/ListContainer');
 let Register = require('./components/login/Register');
 
@@ -52,7 +52,7 @@ class HomeRoute extends React.Component {
         return (
             <div>
                 <Navigation />
-                <Welcome />
+                <Home />
             </div>
         )
     }
