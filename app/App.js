@@ -6,6 +6,7 @@ const React = require('react');
 let Navigation = require('./components/Navigation');
 let Welcome = require('./components/welcome/Welcome');
 let ListContainer = require('./components/list/ListContainer');
+let Register = require('./components/login/Register');
 
 class App extends React.Component {
 
@@ -21,6 +22,10 @@ class App extends React.Component {
 
             case "list":
                 ui = <ListRoute />;
+                break;
+
+            case "register":
+                ui = <RegisterRoute />;
                 break;
 
             default:
@@ -51,6 +56,18 @@ class ListRoute extends React.Component {
             <div>
                 <Navigation />
                 <ListContainer />
+            </div>
+        )
+    }
+}
+
+class RegisterRoute extends React.Component {
+
+    render() {
+        return (
+            <div>
+                <Navigation />
+                <Register />
             </div>
         )
     }
