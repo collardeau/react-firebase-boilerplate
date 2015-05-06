@@ -1,6 +1,6 @@
 let AppDispatcher = require('../dispatcher/AppDispatcher');
 let appConstants = require('../constants/appConstants');
-let firebaseUtils = require('../utils/FirebaseUtils');
+let firebaseUtils = require('../utils/firebaseUtils');
 
 let listActions = {
     getList(list) {

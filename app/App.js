@@ -2,7 +2,8 @@ require('normalize.css/normalize.css');
 require('./styles/main.scss');
 
 const React = require('react');
-const firebaseUtils = require('./utils/FirebaseUtils');
+const firebaseUtils = require('./utils/firebaseUtils');
+const authUtils = require('./utils/authUtils');
 
 let Navigation = require('./components/Navigation');
 let Welcome = require('./components/welcome/Welcome');
@@ -14,7 +15,7 @@ class App extends React.Component {
     render() {
 
         let ui = null;
-        let loggedIn = firebaseUtils.isLoggedIn();
+        let loggedIn = authUtils.isLoggedIn();
         //let publicPages = ['home'];
 
         if(!loggedIn && this.props.route !== "home") {

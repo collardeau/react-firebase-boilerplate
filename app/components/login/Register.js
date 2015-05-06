@@ -1,5 +1,5 @@
 const React = require('react');
-let firebaseUtils = require('../../utils/FirebaseUtils');
+let authUtils = require('../../utils/authUtils');
 
 class Register extends React.Component {
 
@@ -15,7 +15,7 @@ class Register extends React.Component {
         e.preventDefault();
         let email = this.refs.email.getDOMNode().value;
         let pw = this.refs.pw.getDOMNode().value;
-        firebaseUtils.createUser({email: email, password: pw}, function(result){
+        authUtils.createUser({email: email, password: pw}, function(result){
             console.log(result);
         });
         this.refs.email.getDOMNode().value = "";
@@ -27,16 +27,16 @@ class Register extends React.Component {
         e.preventDefault();
         let email = this.refs.email.getDOMNode().value;
         let pw = this.refs.pw.getDOMNode().value;
-        firebaseUtils.loginWithPw({email: email, password: pw});
+        authUtils.loginWithPw({email: email, password: pw});
         this.refs.email.getDOMNode().value = "";
         this.refs.pw.getDOMNode().value = "";
 
     }
 
     handleLogout(e){
-        e.preventDefault();
         console.log("handling logout");
-        firebaseUtils.logout();
+        e.preventDefault();
+        authUtils.logout();
     }
 
     render() {
