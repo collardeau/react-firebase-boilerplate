@@ -6,14 +6,10 @@ let App = require('./App');
 
 let privateViews = ['account', 'more private routes'];
 
-let isPrivateRoute = function(route) {
-    var isPrivate = false;
-    for (let i=0, l = privateViews.length; i < l; i++) {
-        if(route === privateViews[i]) {
-            isPrivate = true;
-        }
-    }
-    return isPrivate
+let isPrivateRoute = (route) => {
+    return privateViews.some((view) => {
+        return view === route;
+    });
 };
 
 class Router extends React.Component {
@@ -59,3 +55,5 @@ React.render(
     <Router />,
     document.getElementById('app')
 );
+
+module.exports = Router;
