@@ -2,8 +2,6 @@ require('normalize.css/normalize.css');
 require('./styles/main.scss');
 
 const React = require('react');
-//const hasher = require('hasher');
-const firebaseUtils = require('./utils/firebaseUtils');
 const authUtils = require('./utils/authUtils');
 
 let Navigation = require('./components/Navigation');
@@ -17,37 +15,29 @@ class App extends React.Component {
     render() {
 
         let ui = null;
-        let loggedIn = authUtils.isLoggedIn();
-        //let publicPages = ['home'];
 
-        if(!loggedIn) {
+        switch(this.props.route) {
 
-            ui = <LoginRoute />;
+            case "home":
+                ui = <HomeRoute />;
+                break;
 
-        }else {
+            case "list":
+                ui = <ListRoute />;
+                break;
 
-            switch(this.props.route) {
+            case "login":
+                ui = <LoginRoute />;
+                break;
 
-                case "home":
-                    ui = <HomeRoute />;
-                    break;
+            case "account":
+                ui = <AccountRoute />;
+                break;
 
-                case "list":
-                    ui = <ListRoute />;
-                    break;
-
-                case "login":
-                    ui = <LoginRoute />;
-                    break;
-
-                case "account":
-                    ui = <AccountRoute />;
-                    break;
-
-                default:
-                    ui = <HomeRoute />;
-            }
+            default:
+                ui = <HomeRoute />;
         }
+
 
         return ui ;
 

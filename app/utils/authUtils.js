@@ -51,7 +51,12 @@ let firebaseAuth = {
     },
 
     isLoggedIn: function(){
+
         return ref.getAuth();
+    },
+
+    isLoggedOut: function(){
+        return !this.isLoggedIn()
     },
 
     logout: function(){

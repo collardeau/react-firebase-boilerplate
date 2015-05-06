@@ -31,6 +31,7 @@
     "axios": "^0.4.2",
     "firebase": "^2.2.2",
     "flux": "^2.0.3",
+    "font-awesome": "^4.3.0",
     "hasher": "^1.2.0",
     "jquery": "^2.1.4",
     "normalize.css": "^3.0.3",
