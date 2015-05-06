@@ -1,4 +1,5 @@
 const React = require('react');
+let firebaseUtils = require('../../utils/FirebaseUtils');
 
 class Register extends React.Component {
 
@@ -7,12 +8,17 @@ class Register extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(){
+    handleSubmit(e){
+        e.preventDefault();
         let email = this.refs.email.getDOMNode().value;
         let pw = this.refs.pw.getDOMNode().value;
-        console.log(pw);
-
+        firebaseUtils.createUser({email: email, password: pw}, function(result){
+            console.log(result);
+        });
+        this.refs.email.getDOMNode().value = "";
+        this.refs.pw.getDOMNode().value = "";
     }
+
     render() {
         return (
             <div className="container">
