@@ -28,7 +28,6 @@ let listActions = {
             data: index
         });
         firebaseUtils.removeItem(key);
-        // what if connection fails? how to revert action?
 
     }
 

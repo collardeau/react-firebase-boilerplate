@@ -1,12 +1,13 @@
-var Firebase = require('firebase');
-var appConstants = require('../constants/appConstants');
-var ref = new Firebase(appConstants.FIREBASE_HOST);
+const Firebase = require('firebase');
+const appConstants = require('../constants/appConstants');
+let hasher = require('hasher');
+let ref = new Firebase(appConstants.FIREBASE_HOST);
 
-var addNewUserToFB = function(newUser){
+let addNewUserToFB = function(newUser){
     ref.child('user').child(newUser.uid).set(newUser);
 };
 
-var firebaseAuth = {
+let firebaseAuth = {
 
     createUser: function(user) {
         console.log("creating user");
@@ -44,6 +45,7 @@ var firebaseAuth = {
             } else {
                 console.log("Authenticated successfully with payload:", authData);
                 cb && cb(authData);   // adding user to db after registering
+                hasher.setHash('account');
             }
         })
     },
@@ -56,6 +58,7 @@ var firebaseAuth = {
         ref.unauth(function(foo){
             console.log("logging out");
         });
+        hasher.setHash('home')
     }
 
 };

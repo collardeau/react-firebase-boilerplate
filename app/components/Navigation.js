@@ -70,7 +70,7 @@ class Navigation extends React.Component {
                                 </ul>
                             </li>
                                 <li className="nav-link">
-                                    <a onClick={this.handleLink.bind(this,'register') }>Register</a>
+                                    <a onClick={this.handleLink.bind(this,'account') }>Account</a>
                                 </li>
                             </ul>
                         </nav>

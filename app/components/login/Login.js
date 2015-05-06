@@ -6,7 +6,6 @@ class Register extends React.Component {
     constructor(){
         super();
         this.handleRegister = this.handleRegister.bind(this);
-        this.handleLogout = this.handleLogout.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
     }
 
@@ -33,12 +32,6 @@ class Register extends React.Component {
 
     }
 
-    handleLogout(e){
-        console.log("handling logout");
-        e.preventDefault();
-        authUtils.logout();
-    }
-
     render() {
         return (
             <div className="container">
@@ -51,7 +44,6 @@ class Register extends React.Component {
                     <input type="password" ref="pw" placeholder="Password"/>
                     <button onClick={this.handleRegister} className="btn btn-action">Register</button>
                     <button onClick={this.handleLogin} className="btn btn-action">Login</button>
-                    <button onClick={this.handleLogout} className="btn-alert">Log Out</button>
                 </form>
             </div>
         )

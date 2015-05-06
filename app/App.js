@@ -2,13 +2,15 @@ require('normalize.css/normalize.css');
 require('./styles/main.scss');
 
 const React = require('react');
+//const hasher = require('hasher');
 const firebaseUtils = require('./utils/firebaseUtils');
 const authUtils = require('./utils/authUtils');
 
 let Navigation = require('./components/Navigation');
 let Home = require('./components/Home');
 let ListContainer = require('./components/list/ListContainer');
-let Register = require('./components/login/Register');
+let Login = require('./components/login/Login');
+let Account = require('./components/Account');
 
 class App extends React.Component {
 
@@ -18,8 +20,10 @@ class App extends React.Component {
         let loggedIn = authUtils.isLoggedIn();
         //let publicPages = ['home'];
 
-        if(!loggedIn && this.props.route !== "home") {
-            ui = <RegisterRoute />;
+        if(!loggedIn) {
+
+            ui = <LoginRoute />;
+
         }else {
 
             switch(this.props.route) {
@@ -32,8 +36,12 @@ class App extends React.Component {
                     ui = <ListRoute />;
                     break;
 
-                case "register":
-                    ui = <RegisterRoute />;
+                case "login":
+                    ui = <LoginRoute />;
+                    break;
+
+                case "account":
+                    ui = <AccountRoute />;
                     break;
 
                 default:
@@ -70,13 +78,25 @@ class ListRoute extends React.Component {
     }
 }
 
-class RegisterRoute extends React.Component {
+class LoginRoute extends React.Component {
 
     render() {
         return (
             <div>
                 <Navigation />
-                <Register />
+                <Login />
+            </div>
+        )
+    }
+}
+
+class AccountRoute extends React.Component {
+
+    render() {
+        return (
+            <div>
+                <Navigation />
+                <Account />
             </div>
         )
     }
