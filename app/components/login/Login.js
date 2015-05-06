@@ -35,15 +35,15 @@ class Register extends React.Component {
     render() {
         return (
             <div className="container">
-                <h1>Login or Register</h1>
+                <h1>Your Account</h1>
 
                 <form>
                     <label>Email</label>
                     <input type="text" ref="email" placeholder="Email"/>
                     <label>Password</label>
                     <input type="password" ref="pw" placeholder="Password"/>
-                    <button onClick={this.handleRegister} className="btn btn-action">Register</button>
                     <button onClick={this.handleLogin} className="btn btn-action">Login</button>
+                    <button onClick={this.handleRegister} className="btn btn-action">Register</button>
                 </form>
             </div>
         )
