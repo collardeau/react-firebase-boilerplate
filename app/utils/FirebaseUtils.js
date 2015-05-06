@@ -68,12 +68,15 @@ var firebaseUtils = {
         })
     },
 
+    isLoggedIn: function(){
+        return ref.getAuth();
+    },
+
     logout: function(){
         ref.unauth(function(foo){
+            console.log("logging out");
             console.log(foo);
-            console.log("logged out");
         });
-        //console.log(auth.uid)
     },
 
     toArray: function (obj) {

@@ -2,6 +2,7 @@ require('normalize.css/normalize.css');
 require('./styles/main.scss');
 
 const React = require('react');
+const firebaseUtils = require('./utils/FirebaseUtils');
 
 let Navigation = require('./components/Navigation');
 let Welcome = require('./components/welcome/Welcome');
@@ -13,23 +14,30 @@ class App extends React.Component {
     render() {
 
         let ui = null;
+        let loggedIn = firebaseUtils.isLoggedIn();
+        //let publicPages = ['home'];
 
-        switch(this.props.route) {
+        if(!loggedIn && this.props.route !== "home") {
+            ui = <RegisterRoute />;
+        }else {
 
-            case "home":
-                ui = <HomeRoute />;
-                break;
+            switch(this.props.route) {
 
-            case "list":
-                ui = <ListRoute />;
-                break;
+                case "home":
+                    ui = <HomeRoute />;
+                    break;
 
-            case "register":
-                ui = <RegisterRoute />;
-                break;
+                case "list":
+                    ui = <ListRoute />;
+                    break;
 
-            default:
-                ui = <HomeRoute />;
+                case "register":
+                    ui = <RegisterRoute />;
+                    break;
+
+                default:
+                    ui = <HomeRoute />;
+            }
         }
 
         return ui ;
