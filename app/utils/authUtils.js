@@ -3,7 +3,7 @@ const appConstants = require('../constants/appConstants');
 let hasher = require('hasher');
 let ref = new Firebase(appConstants.FIREBASE_HOST);
 
-let addNewUserToFB = function(newUser){
+let addNewUserToFB = (newUser) => {
     ref.child('user').child(newUser.uid).child("info").set(newUser);
 };
 

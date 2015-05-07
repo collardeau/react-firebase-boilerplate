@@ -6,7 +6,7 @@ let storage = firebaseUtils.homeInstance().child('public').child('list');
 
 let listActions = {
     getList(list) {
-        storage.on('value', function(snapshot){
+        storage.on('value', (snapshot) => {
             AppDispatcher.handleAction({
                 actionType: appConstants.GET_DATA,
                 data: {
