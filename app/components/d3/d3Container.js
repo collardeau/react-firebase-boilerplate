@@ -1,6 +1,8 @@
 const React = require('react');
 const d3 = require('d3');
 
+let Line = require('./Line');
+
 class D3Container extends React.Component {
 
     componentDidMount() {
@@ -40,7 +42,15 @@ class D3Container extends React.Component {
         return (
             <div className="container d3-container">
                 <h1>D3 Action</h1>
+
+                <Line
+                    x1="20" x2="100"
+                    y1="100" y2="20"
+                    stroke="black"
+                    strokeWidth="10" />
+
             </div>
+
 
         )
     }
