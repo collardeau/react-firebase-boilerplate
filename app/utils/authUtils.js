@@ -9,21 +9,14 @@ let addNewUserToFB = function(newUser){
 
 let firebaseAuth = {
 
-    createUser: function(user) {
-        console.log("creating user");
-        ref.createUser(user, function(err) {
-            if (err) {
-                switch (err.code) {
-                    case "EMAIL_TAKEN":
-                        console.log("The new user account cannot be created because the email is already in use.");
-                        break;
-                    case "INVALID_EMAIL":
-                        console.log("The specifiedsdfs email is not a valid email.");
-                        break;
-                    default:
-                        console.log("Error creating user:", err);
-                }
+    createUser: function(user, options) {
+        ref.createUser(user, function(error) {
+            if (error) {
+
+                options.warn && options.warn(error);
+
             } else {
+
                 this.loginWithPw(user, {
 
                     register: (authData) => {

@@ -6,50 +6,53 @@ class Login extends React.Component {
     constructor() {
         super();
         this.state =  {
-            message: ""
+            warning: ""
         }
     }
 
     handleRegister(e){
-        console.log("handling register");
-        e.preventDefault();
         let email = this.refs.email.getDOMNode().value;
         let pw = this.refs.pw.getDOMNode().value;
-        authUtils.createUser({email: email, password: pw}, function(result){
-            console.log(result);
-        });
-        this.refs.email.getDOMNode().value = "";
-        this.refs.pw.getDOMNode().value = "";
-    }
-
-    handleLogin(e){
-        console.log("handling login");
-        e.preventDefault();
-        let email = this.refs.email.getDOMNode().value;
-        let pw = this.refs.pw.getDOMNode().value;
-        authUtils.loginWithPw({email: email, password: pw}, {
+        authUtils.createUser({email: email, password: pw}, {
             warn: (error) => {
                 this.setState({
-                    message: error.message
+                    warning: error.message
                 })
             }
         });
         this.refs.email.getDOMNode().value = "";
         this.refs.pw.getDOMNode().value = "";
+        e.preventDefault();
+    }
 
+    handleLogin(e){
+        let email = this.refs.email.getDOMNode().value;
+        let pw = this.refs.pw.getDOMNode().value;
+        authUtils.loginWithPw({email: email, password: pw}, {
+            warn: (error) => {
+                this.setState({
+                    warning: error.message
+                })
+            }
+        });
+        this.refs.email.getDOMNode().value = "";
+        this.refs.pw.getDOMNode().value = "";
+        e.preventDefault();
     }
 
     render() {
 
-        let message = (
-          <div>{this.state.message}</div>
+        var warning = (
+            <div className="flash-error">
+                <span>{ this.state.warning }</span>
+            </div>
         );
 
         return (
             <div className="container">
                 <h1>Your Account</h1>
 
-                { message }
+                {this.state.warning ? warning : ""}
 
                 <form>
                     <label>Email</label>
