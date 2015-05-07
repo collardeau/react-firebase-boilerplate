@@ -14,12 +14,11 @@ class Router extends React.Component {
         this.state = {
             hash : ""
         };
-        this.handleChanges = this.handleChanges.bind(this);
     }
 
     componentDidMount() {
-        hasher.changed.add(this.handleChanges);
-        hasher.initialized.add(this.handleChanges);
+        hasher.changed.add(this.handleChanges.bind(this));
+        hasher.initialized.add(this.handleChanges.bind(this));
         hasher.init();
 
         this.setState({
@@ -45,7 +44,6 @@ class Router extends React.Component {
             <App route={ this.state.hash } />
         )
     }
-
 }
 
 React.render(

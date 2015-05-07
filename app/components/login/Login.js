@@ -3,12 +3,6 @@ let authUtils = require('../../utils/authUtils');
 
 class Register extends React.Component {
 
-    constructor(){
-        super();
-        this.handleRegister = this.handleRegister.bind(this);
-        this.handleLogin = this.handleLogin.bind(this);
-    }
-
     handleRegister(e){
         console.log("handling register");
         e.preventDefault();
@@ -42,8 +36,8 @@ class Register extends React.Component {
                     <input type="text" ref="email" placeholder="Email"/>
                     <label>Password</label>
                     <input type="password" ref="pw" placeholder="Password"/>
-                    <button onClick={this.handleLogin} className="btn btn-action">Login</button>
-                    <button onClick={this.handleRegister} className="btn btn-action">Register</button>
+                    <button onClick={this.handleLogin.bind(this)} className="btn btn-action">Login</button>
+                    <button onClick={this.handleRegister.bind(this)} className="btn btn-action">Register</button>
                 </form>
             </div>
         )
@@ -51,5 +45,3 @@ class Register extends React.Component {
 }
 
 module.exports = Register;
-
-

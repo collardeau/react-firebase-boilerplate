@@ -7,8 +7,9 @@ class Welcome extends React.Component {
 
     constructor() {
         super();
-        this.state = { toggleIsOpen: false };
-        this.handleToggle = this.handleToggle.bind(this);
+        this.state = {
+            toggleIsOpen: false
+        };
     }
 
     handleToggle(e){
@@ -41,7 +42,7 @@ class Welcome extends React.Component {
 
                 <hr/>
                 <div>
-                    <a href='#' onClick={this.handleToggle}>Collapsable Content</a>
+                    <a href='#' onClick={this.handleToggle.bind(this)}>Collapsable Content</a>
                     <div style={styles.content}>
                         Collapsable section toggled with React state
                     </div>

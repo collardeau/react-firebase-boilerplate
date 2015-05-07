@@ -5,11 +5,6 @@ let user = authUtils.isLoggedIn();
 
 class Account extends React.Component {
 
-    constructor(){
-        super();
-        this.handleLogout = this.handleLogout.bind(this);
-    }
-
     handleLogout(e){
         console.log("handling logout");
         e.preventDefault();
@@ -21,7 +16,7 @@ class Account extends React.Component {
             <div className="container">
                 <h1>Account</h1>
                 <p>You signed up with email: </p>
-                <button onClick={this.handleLogout} className="btn-alert">Log Out</button>
+                <button onClick={this.handleLogout.bind(this)} className="btn-alert">Log Out</button>
             </div>
         )
     }
