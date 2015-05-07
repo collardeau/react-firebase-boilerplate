@@ -1,22 +1,27 @@
 const React = require('react');
 let authUtils = require('../utils/authUtils');
+let MyList = require('../components/list/MyList');
 
 let user = authUtils.isLoggedIn();
 
 class Account extends React.Component {
 
     handleLogout(e){
-        console.log("handling logout");
-        e.preventDefault();
         authUtils.logout();
+        e.preventDefault();
     }
 
     render() {
+
+        let userEmail = authUtils.isLoggedIn().password.email;
+
         return (
             <div className="container">
                 <h1>Account</h1>
-                <p>You signed up with email: </p>
+                <p>You signed up with email: <b>{ userEmail }</b> </p>
                 <button onClick={this.handleLogout.bind(this)} className="btn-alert">Log Out</button>
+                <hr />
+                <MyList />
             </div>
         )
     }

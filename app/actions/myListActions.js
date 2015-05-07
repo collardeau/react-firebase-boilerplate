@@ -1,10 +1,12 @@
 let AppDispatcher = require('../dispatcher/AppDispatcher');
 let appConstants = require('../constants/appConstants');
 let firebaseUtils = require('../utils/firebaseUtils');
+let authUtils = require('../utils/authUtils');
 
-let storage = firebaseUtils.homeInstance().child('public').child('list');
+let uid = authUtils.isLoggedIn().uid;
+let storage = firebaseUtils.homeInstance().child('user').child(uid).child('list');
 
-let listActions = {
+let myListActions = {
     getList(list) {
         storage.on('value', function(snapshot){
             AppDispatcher.handleAction({
@@ -30,9 +32,8 @@ let listActions = {
             data: index
         });
         storage.child(key).remove();
-
     }
 
 };
 
-module.exports = listActions;
+module.exports = myListActions;

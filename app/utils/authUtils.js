@@ -4,7 +4,7 @@ let hasher = require('hasher');
 let ref = new Firebase(appConstants.FIREBASE_HOST);
 
 let addNewUserToFB = function(newUser){
-    ref.child('user').child(newUser.uid).set(newUser);
+    ref.child('user').child(newUser.uid).child("info").set(newUser);
 };
 
 let firebaseAuth = {
