@@ -3,7 +3,9 @@ let appConstants = require('../constants/appConstants');
 let firebaseUtils = require('../utils/firebaseUtils');
 let authUtils = require('../utils/authUtils');
 
-let uid = authUtils.isLoggedIn().uid;
+let loggedIn = authUtils.isLoggedIn();
+let uid = (loggedIn && loggedIn.uid) || "demo";
+
 let storage = firebaseUtils.homeInstance().child('user').child(uid).child('list');
 
 let myListActions = {

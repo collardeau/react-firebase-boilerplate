@@ -13,7 +13,8 @@ class Account extends React.Component {
 
     render() {
 
-        let userEmail = authUtils.isLoggedIn().password.email;
+        let loggedIn = authUtils.isLoggedIn();
+        let userEmail = loggedIn && loggedIn.password.email;
 
         return (
             <div className="container">
