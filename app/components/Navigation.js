@@ -28,9 +28,7 @@ class Navigation extends React.Component {
             <header className="centered-navigation" role="banner">
 
                 <div className="centered-navigation-wrapper">
-                    <a href="javascript:void(0)" className="mobile-logo">
-                        <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="Logo image" />
-                    </a>
+
                     <a href="javascript:void(0)" id="js-centered-navigation-mobile-menu" className="centered-navigation-mobile-menu">MENU</a>
                     <nav role="navigation">
                         <ul id="js-centered-navigation-menu" className="centered-navigation-menu show">
@@ -39,12 +37,6 @@ class Navigation extends React.Component {
                             </li>
                             <li className="nav-link">
                                 <a onClick={this.handleLink.bind(this,'list') }>List</a>
-                            </li>
-
-                            <li className="nav-link logo">
-                                <a href="javascript:void(0)" className="logo">
-                                    <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="Logo image" />
-                                </a>
                             </li>
 
                             <li className="nav-link more">

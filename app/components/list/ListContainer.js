@@ -54,7 +54,7 @@ class ListContainer extends React.Component {
 
         return (
             <div className="container">
-                <h1>My List</h1>
+                <h1>Public List</h1>
 
                 <form onSubmit={this.handleSubmit}>
                     <input ref="newItem" type="text" placeholder="New item" />
