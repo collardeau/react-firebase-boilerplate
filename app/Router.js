@@ -42,7 +42,7 @@ class Router extends React.Component {
 
     render () {
         return (
-            <App route={ this.state.hash }/>
+            <App route={ this.state.hash } />
         )
     }
 
