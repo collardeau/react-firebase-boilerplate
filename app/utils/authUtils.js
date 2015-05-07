@@ -24,29 +24,40 @@ let firebaseAuth = {
                         console.log("Error creating user:", err);
                 }
             } else {
-                this.loginWithPw(user, function(authData){
-                    addNewUserToFB({
-                        email: user.email,
-                        uid: authData.uid,
-                        token: authData.token
-                    });
+                this.loginWithPw(user, {
+
+                    register: (authData) => {
+                        addNewUserToFB({
+                            email: user.email,
+                            uid: authData.uid,
+                            token: authData.token
+                        });
+                    }
                 });
             }
         }.bind(this));
     },
 
-    loginWithPw: function(user, cb){
+    loginWithPw: function(user, options){
+
         ref.authWithPassword({
+
             email    : user.email,
             password : user.password
+
         }, function(error, authData) {
+
             if (error) {
-                console.log("Login Failed!", error);
+
+                options.warn && options.warn(error);
+
             } else {
-                console.log("Authenticated successfully with payload:", authData);
-                cb && cb(authData);   // adding user to db after registering
+
+                options.register && options.register(authData);
                 hasher.setHash('account');
+
             }
+
         })
     },
 

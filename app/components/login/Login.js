@@ -1,7 +1,14 @@
 const React = require('react');
 let authUtils = require('../../utils/authUtils');
 
-class Register extends React.Component {
+class Login extends React.Component {
+
+    constructor() {
+        super();
+        this.state =  {
+            message: ""
+        }
+    }
 
     handleRegister(e){
         console.log("handling register");
@@ -20,16 +27,29 @@ class Register extends React.Component {
         e.preventDefault();
         let email = this.refs.email.getDOMNode().value;
         let pw = this.refs.pw.getDOMNode().value;
-        authUtils.loginWithPw({email: email, password: pw});
+        authUtils.loginWithPw({email: email, password: pw}, {
+            warn: (error) => {
+                this.setState({
+                    message: error.message
+                })
+            }
+        });
         this.refs.email.getDOMNode().value = "";
         this.refs.pw.getDOMNode().value = "";
 
     }
 
     render() {
+
+        let message = (
+          <div>{this.state.message}</div>
+        );
+
         return (
             <div className="container">
                 <h1>Your Account</h1>
+
+                { message }
 
                 <form>
                     <label>Email</label>
@@ -44,4 +64,4 @@ class Register extends React.Component {
     }
 }
 
-module.exports = Register;
+module.exports = Login;
