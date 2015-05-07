@@ -8,6 +8,22 @@ body {
   background: darken(white, 2%);
 }
 
+svg {
+  //background-color: yellow;
+}
+
+#line {
+  transition: all 3s ease;
+}
+#line:hover {
+  stroke: green !important;
+}
+
+.circle:hover {
+  stroke: yellow;
+  stroke-width: 5
+}
+
 .container {
   @include padding(em(34px) em(55px));  // bourbon
 }
