@@ -5,18 +5,15 @@ let authUtils = require('./utils/authUtils');
 let App = require('./App');
 
 let privateViews = ['account', 'more private routes'];
-
-let isPrivateRoute = (route) => {
-    return privateViews.some((view) => {
-        return view === route;
-    });
-};
+let isPrivateRoute = (route) => privateViews.some((view) =>  view === route);
 
 class Router extends React.Component {
 
     constructor() {
         super();
-        this.state = {hash : ""};
+        this.state = {
+            hash : ""
+        };
         this.handleChanges = this.handleChanges.bind(this);
     }
 
@@ -32,7 +29,7 @@ class Router extends React.Component {
 
     componentWillUpdate() {
         let route = hasher.getHash();
-        if(authUtils.isLoggedOut() && isPrivateRoute(route)) {
+        if(isPrivateRoute(route) && authUtils.isLoggedOut()) {
             hasher.setHash('login');
         }
     }
