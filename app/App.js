@@ -37,7 +37,7 @@ class App extends React.Component {
                 break;
 
             case "d3":
-                ui = <D3Route />;
+                ui = d3Route;
                 break;
 
             default:
@@ -77,16 +77,13 @@ let accountRoute = (
     </div>
 );
 
-class D3Route extends React.Component {
+let d3Route = (
+    <div>
+        <Navigation />
+        <D3Container />
+    </div>
+);
 
-    render() {
-        return (
-            <div>
-                <Navigation />
-                <D3Container />
-            </div>
-        )
-    }
-}
+
 
 module.exports = App;
