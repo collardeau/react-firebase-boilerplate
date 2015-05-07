@@ -3,7 +3,7 @@
  */
 const React = require('react');
 
-class Welcome extends React.Component {
+class Home extends React.Component {
 
     constructor() {
         super();
@@ -54,4 +54,4 @@ class Welcome extends React.Component {
 
 }
 
-module.exports = Welcome;
+module.exports = Home;
