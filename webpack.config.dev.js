@@ -14,7 +14,6 @@ config.module.loaders.push({
     exclude: /node_modules/
 });
 
-config.plugins.push(new webpack.HotModuleReplacementPlugin());
 config.plugins.push(new webpack.NoErrorsPlugin());
 
 module.exports = config;
