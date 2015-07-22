@@ -38,7 +38,7 @@
     "react": "^0.13.2"
   },
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.config.dev.js --inline --progress --colors --content-base public --history-api-fallback",
+    "dev": "webpack-dev-server --config webpack.config.dev.js --inline --progress --colors --content-base public --history-api-fallback --hot",
     "build": "webpack --config webpack.config.build.js --progress --colors",
     "test": "karma start"
   }
